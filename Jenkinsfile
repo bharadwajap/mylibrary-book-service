@@ -29,9 +29,7 @@
 	            }
 	            sh "sudo docker build -t ${projectName} ."
 	            
-		        withCredentials([usernamePassword(credentialsId: gitCredentials, usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
-					sh "sudo docker run --restart always --name=${projectName} -e CONFIG_REPO_USER=${env.GIT_USER} -e CONFIG_REPO_PWD=${env.GIT_PASS} -p 8081:8081 -td ${projectName}"
-				}
+			sh "sudo docker run --restart always --name=${projectName} -e CONFIG_SERVER_URI=http://localhost:8888 -p 8081:8081 -td ${projectName}"
 			}
         } catch (def e) {
 			print "Exception occurred while running the pipeline"+ e
