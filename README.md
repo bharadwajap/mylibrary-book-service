@@ -1,2 +1,2 @@
-## An example of a simple microservice following API guidelines
+## MyLibrary Application - Books Service
 
