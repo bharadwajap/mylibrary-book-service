@@ -29,7 +29,7 @@
 	            }
 	            sh "sudo docker build -t ${projectName} ."
 	            
-			sh "sudo docker run --restart always --name=${projectName} -e CONFIG_SERVER_URI=http://localhost:8888 -p 8081:8081 -td ${projectName}"
+			sh "sudo docker run --restart=always --network=host --name=${projectName} -e CONFIG_SERVER_URI=http://localhost:8888 -td ${projectName}"
 			}
         } catch (def e) {
 			print "Exception occurred while running the pipeline"+ e
