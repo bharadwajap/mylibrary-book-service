@@ -35,8 +35,8 @@
             	final String activeContainers = sh(script: "sudo docker ps -a", returnStdout: true)
 	            boolean containerFound = activeContainers.toLowerCase().contains("${projectName}")
 	            if (containerFound) {
-	                sh "sudo docker --config=\"${WORKSPACE}\" stop ${projectName}"
-	                sh "sudo docker --config=\"${WORKSPACE}\" rm ${projectName}"
+	                sh "sudo docker stop ${projectName}"
+	                sh "sudo docker rm ${projectName}"
 	            }
 	            sh "sudo docker build -t ${projectName} ."
 	            
