@@ -16,6 +16,7 @@
 				name: 'configServerIp'
 			)
             ])
+         ])
             
         try {
             stage('Collect info') {
