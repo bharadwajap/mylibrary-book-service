@@ -40,7 +40,7 @@
 	            }
 	            sh "sudo docker build -t ${projectName} ."
 	            
-			sh "sudo docker run --restart=always --network=host --name=${projectName} -v /opt/mylibrary:/opt/app/mylibrary-h2-db -e CONFIG_SERVER_URI=http://${params.configServerIp}:8888 -td ${projectName}"
+			sh "sudo docker run --restart=always --network=host --name=${projectName} -v /opt/mylibrary:/opt/app/mylibrary-h2-db:z -e CONFIG_SERVER_URI=http://${params.configServerIp}:8888 -td ${projectName}"
 			}
         } catch (def e) {
 			print "Exception occurred while running the pipeline"+ e
